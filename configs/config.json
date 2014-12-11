@@ -1,0 +1,25 @@
+{
+	"port" : 8080,
+	"db": {
+		"name" : "TvoyaDoska"
+	},
+	"mongoose" :  {
+		"uri" : "mongodb://localhost/TvoyaDoska",
+		"options" : {
+			"server" : {
+				"socketOptions" : {
+					"keepAive" : 1
+				}
+			}
+		}
+	},
+	"session" : {
+		"secret" : "TvoyaDoskaEtoZaebisParen",
+		"key" : "sid",
+		"cookie" : {
+			"path" : "/",
+			"httpOnly" : true,
+			"maxAge" : null
+		}
+	}
+}
