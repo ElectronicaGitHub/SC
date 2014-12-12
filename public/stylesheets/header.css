@@ -1,0 +1,64 @@
+header {
+  background-color: #222;
+  color: #ccc;
+  height: 120px;
+  padding: 0 20px;
+  margin-bottom: 10px; }
+  header .left {
+    float: left; }
+  header .right {
+    line-height: 120px;
+    float: right; }
+    header .right > span {
+      line-height: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0px 20px; }
+      header .right > span .action {
+        font-family: 'LatoBlack';
+        font-size: 20px;
+        line-height: 25px;
+        padding: 5px 0;
+        padding: 0px;
+        border-radius: 5px;
+        text-align: center;
+        -webkit-transition: all 0.2s;
+                transition: all 0.2s; }
+        header .right > span .action.upper {
+          margin-bottom: 10px; }
+        header .right > span .action:hover {
+          color: white; }
+      header .right > span .contact {
+        font-family: 'LatoMedium';
+        font-size: 18px;
+        padding: 5px 0; }
+  header .logo {
+    font-family: 'LatoBlack';
+    font-size: 24px;
+    float: left;
+    line-height: 120px;
+    padding-right: 20px; }
+    header .logo a {
+      color: #ccc;
+      text-decoration: none; }
+  header .tab {
+    font-size: 16px;
+    line-height: 120px;
+    padding: 0 10px;
+    float: left;
+    font-family: 'LatoBlack';
+    -webkit-transition: all 0.2s;
+            transition: all 0.2s; }
+    header .tab span {
+      padding: 10px 1px;
+      -webkit-transition: all 0.2s;
+              transition: all 0.2s; }
+    header .tab:hover span {
+      color: white;
+      border-bottom: 5px solid white; }
+  header .divider {
+    border-left: 1px solid #222;
+    border-right: 1px solid #444;
+    width: 0;
+    margin-top: 10px;
+    height: 100px; }

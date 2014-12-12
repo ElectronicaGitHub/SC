@@ -1,10 +1,10 @@
 {
 	"port" : 8080,
 	"db": {
-		"name" : "TvoyaDoska"
+		"name" : "science_center"
 	},
 	"mongoose" :  {
-		"uri" : "mongodb://localhost/TvoyaDoska",
+		"uri" : "mongodb://localhost/science_center",
 		"options" : {
 			"server" : {
 				"socketOptions" : {
@@ -14,12 +14,16 @@
 		}
 	},
 	"session" : {
-		"secret" : "TvoyaDoskaEtoZaebisParen",
+		"secret" : "science_center_help_me_please",
 		"key" : "sid",
 		"cookie" : {
 			"path" : "/",
 			"httpOnly" : true,
 			"maxAge" : null
 		}
+	},
+	"autentification": {
+		"username" : "qwerty",
+		"password" : "qwerty"
 	}
 }

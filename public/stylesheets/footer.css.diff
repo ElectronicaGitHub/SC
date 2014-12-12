@@ -1,0 +1,23 @@
+Index: public/stylesheets/footer.css
+===================================================================
+--- public/stylesheets/footer.css
++++ public/stylesheets/footer.css
+@@ -20,9 +20,10 @@
+         font-size: 14px;
+         padding-left: 8px;
+         font-family: 'LatoMedium';
+         line-height: 22px;
++        -webkit-transition: all 0.2s;
++                transition: all 0.2s;
+-        transition: all 0.2s;
+         border-left: 4px solid transparent; }
+         footer .top .tab .item:hover {
+           border-left: 4px solid #fff;
+           color: #fff; }
+@@ -42,6 +43,4 @@
+       footer .bottom > a .st {
+         font-size: 12px;
+         line-height: 16px;
+         font-family: 'LatoMedium'; }
+-
+-/*# sourceMappingURL=footer.css.map */
