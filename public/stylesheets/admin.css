@@ -1,0 +1,224 @@
+.width-wrapper {
+  width: 960px;
+  margin: 0 auto; }
+
+* {
+  padding: 0;
+  margin: 0; }
+
+.adminView {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  position: relative;
+  min-height: 500px; }
+
+.vert-nav-panel {
+  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background-color: #222; }
+  .vert-nav-panel ul {
+    list-style: none; }
+    .vert-nav-panel ul li {
+      color: white;
+      padding-left: 20px;
+      font-size: 16px;
+      height: 35px;
+      line-height: 35px;
+      -webkit-transition: all 0.2s;
+              transition: all 0.2s; }
+      .vert-nav-panel ul li.tab:hover {
+        background-color: #333; }
+      .vert-nav-panel ul li.selected {
+        background-color: #3498DB;
+        color: black; }
+      .vert-nav-panel ul li.title {
+        font-weight: 700;
+        font-size: 20px; }
+
+.view-container {
+  float: left;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 220px;
+  background-color: white; }
+
+.nav {
+  font-size: 18px;
+  padding: 5px 20px; }
+  .nav span {
+    margin-left: 10px;
+    color: black; }
+    .nav span.selected {
+      border-bottom: 3px solid black;
+      font-weight: 700; }
+
+.success {
+  background-color: #27ae60;
+  color: black;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px; }
+
+.tabpage {
+  padding: 20px;
+  overflow: hidden; }
+  .tabpage .tabname {
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase; }
+  .tabpage p {
+    font-size: 15px; }
+  .tabpage input {
+    height: 30px;
+    width: 100%;
+    padding: 0 5px;
+    box-sizing: border-box;
+    margin-bottom: 20px; }
+  .tabpage button {
+    height: 30px;
+    padding: 0px 10px; }
+  .tabpage .list {
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 500px; }
+    .tabpage .list > p {
+      font-size: 18px;
+      font-weight: 700;
+      border-bottom: 2px solid #d6d6d6;
+      margin-bottom: 10px;
+      text-transform: uppercase; }
+    .tabpage .list .each {
+      clear: both;
+      position: relative;
+      border: 1px solid #d4d4d4;
+      margin: 5px 0;
+      padding: 10px;
+      box-sizing: border-box;
+      overflow: hidden; }
+      .tabpage .list .each .image {
+        float: left;
+        width: 40px;
+        margin-right: 10px;
+        height: 40px;
+        background-position: center center;
+        background-size: cover; }
+      .tabpage .list .each .text-info {
+        float: left; }
+      .tabpage .list .each button {
+        outline: none;
+        border: none;
+        height: 20px;
+        width: 80px; }
+      .tabpage .list .each button.change {
+        background-color: #3498db;
+        font-weight: 700; }
+      .tabpage .list .each button.remove {
+        background-color: #e74c3c;
+        font-weight: 700;
+        color: white; }
+  .tabpage .each:hover .buttons {
+    display: block; }
+  .tabpage .buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none; }
+  .tabpage .help-list .each {
+    overflow: hidden;
+    border: 1px solid #eee;
+    padding: 10px;
+    box-sizing: border-box;
+    -webkit-transition: all 0.2s;
+            transition: all 0.2s; }
+    .tabpage .help-list .each.mini {
+      padding: 0; }
+    .tabpage .help-list .each .image, .tabpage .help-list .each .text-info {
+      float: left; }
+    .tabpage .help-list .each .image {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      background-size: cover;
+      background-position: center center; }
+    .tabpage .help-list .each:hover {
+      background-color: #d5d5d5; }
+    .tabpage .help-list .each.selected {
+      background-color: rgba(46, 204, 113, 0.3); }
+
+.shedule.three .list {
+  width: 33.333%; }
+.shedule .list {
+  width: 50%; }
+.shedule .each {
+  position: relative; }
+  .shedule .each:hover {
+    background-color: #d5d5d5; }
+  .shedule .each .cost {
+    position: absolute;
+    top: 5px;
+    right: 5px; }
+  .shedule .each .payId {
+    position: absolute;
+    top: 25px;
+    right: 5px; }
+  .shedule .each .event-info {
+    clear: both; }
+
+.fix {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto; }
+
+.menu {
+  font-family: 'Roboto';
+  background-color: white;
+  z-index: 200;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  width: 300px;
+  height: 120px; }
+  .menu .button-wrapper {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    margin-top: 25px; }
+    .menu .button-wrapper button {
+      width: 100px;
+      height: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      border: none;
+      outline: none;
+      margin: 0px 5px;
+      cursor: pointer; }
+      .menu .button-wrapper button#proceedRemove {
+        background-color: rgba(231, 76, 60, 0.4); }
+        .menu .button-wrapper button#proceedRemove:hover {
+          background-color: rgba(231, 76, 60, 0.6); }
+      .menu .button-wrapper button#rejectRemove {
+        background-color: rgba(41, 128, 185, 0.4); }
+        .menu .button-wrapper button#rejectRemove:hover {
+          background-color: rgba(41, 128, 185, 0.6); }
+
+.fader {
+  z-index: 180;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); }

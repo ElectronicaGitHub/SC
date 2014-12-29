@@ -1,0 +1,82 @@
+.width-wrapper {
+  width: 960px;
+  margin: 0 auto; }
+
+.shedule {
+  padding: 40px 0;
+  font-family: 'Roboto Condensed'; }
+  .shedule h3.title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700; }
+  .shedule .month-label {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px; }
+
+.shedule-event {
+  clear: both;
+  overflow: hidden;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  position: relative;
+  padding-left: 20px;
+  box-sizing: border-box;
+  background-color: #ddd; }
+  .shedule-event .info {
+    float: left; }
+    .shedule-event .info .title {
+      font-weight: 700;
+      font-size: 24px;
+      margin-bottom: 10px; }
+    .shedule-event .info .lector > div {
+      float: left; }
+    .shedule-event .info .lector .avatar {
+      background-position: center center;
+      width: 30px;
+      height: 30px;
+      background-size: cover;
+      border-radius: 50%;
+      margin-right: 10px; }
+    .shedule-event .info .lector .name {
+      line-height: 30px;
+      font-size: 16px; }
+  .shedule-event .form {
+    position: absolute;
+    top: 30px;
+    right: 320px;
+    width: 200px;
+    height: 40px;
+    line-height: 40px; }
+  .shedule-event .dates {
+    position: absolute;
+    top: 30px;
+    right: 220px;
+    width: 200px;
+    height: 40px;
+    line-height: 40px; }
+  .shedule-event .appr-button {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    background-color: #3498DB;
+    width: 170px;
+    height: 40px;
+    font-weight: 700;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 5px 0; }
+    .shedule-event .appr-button > div {
+      float: left;
+      height: 30px;
+      line-height: 30px;
+      text-align: center; }
+    .shedule-event .appr-button .button {
+      width: 100px;
+      border-right: 1px solid #196090;
+      box-sizing: border-box; }
+    .shedule-event .appr-button .price {
+      width: 70px;
+      border-left: 1px solid #5faee3;
+      box-sizing: border-box; }

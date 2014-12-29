@@ -1,9 +1,8 @@
 var Advertise = require('../models/Advertise'),
 	Course = require('../models/Course'),
 	Event = require('../models/Event'),
-	Lection = require('../models/Lection'),
 	Lector = require('../models/Lector'),
-	Shedule = require('../models/Shedule');
+	Blog = require('../models/Blog');
 
 function admin(express, config) {
 	var router = express.Router();
@@ -116,34 +115,6 @@ function admin(express, config) {
 		})
 	});
 
-	// Lection
-
-	router.post('/lection/', function(req, res, next) {
-		lection = new Lection(req.body);
-		lection.save(function(err) {
-			if (err) return next(err);
-			res.json({
-				save: true
-			})
-		})
-	});
-	router.post('/lection/:id', function(req, res, next) {
-		var lection = req.body;
-		delete lection._id;
-		Lection.findByIdAndUpdate(req.params.id, lection, function(err, result) {
-			if (err) return next(err);
-			res.json({
-				save: true
-			})
-		})
-	});
-	router.delete('/lection/:id', function(req, res, next) {
-		Lection.findByIdAndRemove(req.params.id, function(err, result) {
-			if (err) return next(err);
-			res.json('article deleted');
-		})
-	});
-
 	// Lector
 
 	router.post('/lector/', function(req, res, next) {
@@ -172,33 +143,34 @@ function admin(express, config) {
 		})
 	});
 
-	// Shedule
+	// Blog
 
-	router.post('/shedule/', function(req, res, next) {
-		shedule = new Shedule(req.body);
-		shedule.save(function(err) {
+	router.post('/blog/', function(req, res, next) {
+		blog = new Blog(req.body);
+		blog.save(function(err) {
 			if (err) return next(err);
 			res.json({
 				save: true
 			})
 		})
 	});
-	router.post('/shedule/:id', function(req, res, next) {
-		var shedule = req.body;
-		delete shedule._id;
-		Shedule.findByIdAndUpdate(req.params.id, shedule, function(err, result) {
+	router.post('/blog/:id', function(req, res, next) {
+		var blog = req.body;
+		delete blog._id;
+		Blog.findByIdAndUpdate(req.params.id, blog, function(err, result) {
 			if (err) return next(err);
 			res.json({
 				save: true
 			})
 		})
 	});
-	router.delete('/shedule/:id', function(req, res, next) {
-		Shedule.findByIdAndRemove(req.params.id, function(err, result) {
+	router.delete('/blog/:id', function(req, res, next) {
+		Blog.findByIdAndRemove(req.params.id, function(err, result) {
 			if (err) return next(err);
 			res.json('article deleted');
 		})
 	});
+
 
 	return router;
 }

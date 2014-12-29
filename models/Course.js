@@ -12,10 +12,7 @@ var Course = new Schema({
 		type : ObjectId, 
 		ref : 'Lector'
 	},
-	lections : [{
-		type : ObjectId, 
-		ref : 'Lection'
-	}]
+	payId : String
 })
 
 module.exports = mongoose.model('Course', Course);

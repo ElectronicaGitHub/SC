@@ -3,9 +3,9 @@ Schema = mongoose.Schema;
 ObjectId = Schema.Types.ObjectId;
 
 var Event = new Schema({
-	lection : {
+	course : {
 		type : ObjectId, 
-		ref : 'Lection'
+		ref : 'Course'
 	},
 	cost : Number,
 	payId : String,

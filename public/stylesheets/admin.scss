@@ -1,0 +1,273 @@
+@import 'theme';
+
+$menu-item-height : 35px;
+// $selected-color : #3498DB;
+
+* {
+	padding: 0;
+	margin: 0;
+}
+.adminView {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 300;
+	font-size: 12px;
+	position: relative;
+	min-height: 500px;
+}
+
+.vert-nav-panel {
+	float: left;
+	position: absolute;
+	top: 0;
+	left : 0;
+	width: 220px;
+	height: 100%;
+	background-color: #222;
+	ul {
+		list-style: none;
+		li {
+			color: white;
+			padding-left: 20px;
+			font-size: 16px;
+			height: $menu-item-height;
+			line-height: $menu-item-height;
+			transition: all 0.2s;
+			&.tab:hover {
+				background-color: #333;
+			}
+			&.selected {
+				background-color: $color-1;
+				color: black;
+			}
+			&.title {
+				font-weight: 700;
+				font-size: 20px;
+			}
+
+		}
+	}
+}
+.view-container {
+	float: left;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left : 220px;
+	background-color: white;
+}
+
+.nav {
+	font-size: 18px;
+	padding: 5px 20px;
+	span {
+		margin-left: 10px;
+		color: black;
+		&.selected {
+			border-bottom: 3px solid black;
+			font-weight: 700;
+		}
+	}
+}
+.success {
+	background-color: #27ae60;
+	color: black;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-weight: 700;
+	font-size: 15px;
+}
+.tabpage {
+	padding: 20px;
+	overflow: hidden;
+	.tabname {
+		font-size: 25px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	p {
+		font-size: 15px;
+	}
+	input {
+		height: 30px;
+		width: 100%;
+		padding: 0 5px;
+		box-sizing: border-box;
+		margin-bottom: 20px;
+	}
+	button {
+		height: 30px;
+		padding: 0px 10px;
+		// width: 100px;
+	}
+	.list {
+		float: left;
+		padding: 10px;
+		box-sizing: border-box;
+		width: 100%;
+		min-height: 500px;
+		> p {
+			font-size: 18px;
+			font-weight: 700;
+			border-bottom: 2px solid #d6d6d6;
+			margin-bottom: 10px;
+			text-transform: uppercase;
+		}
+		.each {
+			clear: both;
+			position: relative;
+			border: 1px solid #d4d4d4;
+			margin: 5px 0;
+			padding: 10px;
+			box-sizing: border-box;
+			overflow: hidden;
+			.image {
+				float: left;
+				width: 40px;
+				margin-right: 10px;
+				height: 40px;
+				background-position: center center;
+				background-size: cover;
+			}
+			.text-info {
+				float: left;
+			}
+			button {
+				outline: none;
+				border: none;
+				height: 20px;
+				width: 80px;
+			}
+			button.change {
+				background-color: #3498db;
+				font-weight: 700;
+
+			}
+			button.remove {
+				background-color: #e74c3c;
+				font-weight: 700;
+				color : white;
+			}
+		}
+	}
+	.each:hover .buttons {
+		display: block;
+	}
+	.buttons {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: none;
+	}
+	.help-list {
+		.each {
+			&.mini {
+				padding: 0;
+			}
+			.image, .text-info {
+				float: left;
+			}
+			.image {
+				width: 40px;
+				height: 40px;
+				margin-right: 10px;
+				background-size: cover;
+				background-position: center center;
+			}
+			overflow: hidden;
+			border: 1px solid #eee;
+			padding: 10px;
+			box-sizing: border-box;
+			transition: all 0.2s;
+			&:hover {
+				background-color: #d5d5d5;
+			}
+			&.selected {
+				background-color: rgba(46, 204, 113, 0.3);
+			}
+		}
+	}
+}
+
+
+.shedule {
+	&.three .list {
+		width: 33.333%;
+	}
+	.list {
+		width: 50%;
+	}
+	.each {
+		position: relative;
+		&:hover {
+			background-color: #d5d5d5;
+		}
+		.cost {
+			position: absolute;
+			top: 5px;
+			right: 5px;
+		}
+		.payId {
+			position: absolute;
+			top: 25px;
+			right: 5px;
+		}
+		.event-info {
+			clear: both;
+		}
+	}
+}
+
+.fix {
+	position: fixed;
+	top: 0;bottom: 0;right: 0;left: 0;
+	margin: auto;
+}
+.menu {
+	font-family: 'Roboto';
+	background-color: white;
+	z-index: 200;
+	box-shadow: 0 2px 5px rgba(0,0,0,.5);
+	width: 300px;
+	height: 120px;
+	// padding: 30px;
+	.button-wrapper {
+		text-align: center;
+		display: inline-block;
+		vertical-align: middle;
+		width: 100%;
+		margin-top: 25px;
+		button {
+			width: 100px;
+			height: 30px;
+			font-size: 14px;
+			font-weight: 700;
+			border: none;
+			outline: none;
+			margin: 0px 5px;
+			cursor: pointer;
+			&#proceedRemove {
+				background-color: rgba(231, 76, 60,.4);
+				&:hover {
+					background-color: rgba(231, 76, 60,.6);
+				}
+			}
+			&#rejectRemove {
+				background-color: rgba(41, 128, 185,.4);
+				&:hover {
+					background-color: rgba(41, 128, 185,.6);
+				}
+			}
+		}
+	}
+}
+.fader {
+	z-index: 180;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.4);
+}

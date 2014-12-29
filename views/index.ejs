@@ -1,8 +1,61 @@
 <%- layout('base.ejs') %>
 <% block('title', 'Главная страница') -%>
-<% script('/stylesheets/index.css') -%>
+<% stylesheet('/stylesheets/index.css') -%>
+<% script('/libs/carousel.js') -%>
+<% script('/libs/moment.js') -%>
+<% script('/javascripts/index.js') -%>
+<% stylesheet('/stylesheets/carousel.css') -%>
+
 <div ng-app="index" ng-controller="Index" ng-init="init()">	
 
-hello it's index
+	<div id="c-carousel">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="carousel">
+				<% for (var i in advertises) { %>
+					<div>
+						<div class="img-front" style="background-image : url(<%= advertises[i].background %>)"></div>
+						<p class="slider-title"><%= advertises[i].title %></p>
+						<p><%= advertises[i].description %></p>
+						<a href="http://dotdotdot.frebsite.nl" target="_blank">Visit site &raquo;</a>
+					</div>
+				<% } %>
+			</div>
+			<a id="prev" href="#"><span></span></a>
+			<a id="next" href="#"><span></span></a>
+		</div>
+	</div>
+	<div class="shedule">
+		<div class="width-wrapper">
+			<h3 class="title">Расписание курсов</h3>
+			<div class="shedule-month" ng-repeat="m in events track by $index">
+				<div ng-if="getMonth(m.n)">
+					<div class="month-label"> {{ getMonth(m.n) }} </div>
+					<div ng-repeat="evt in m.events" class="shedule-event">
+						<!-- <div class="image" style="background-image : url( {{ evt.image }} )"></div> -->
+						<div class="info">
+							<div class="title">{{ evt.course.title }}</div>
+							<div class="lector">
+								<div class="avatar" style="background-image:url({{ evt.course.lector.avatar }})"></div>
+								<div class="name">{{ evt.course.lector.name }}</div>
+								<!-- <div>{{ evt.course.lector.name }}</div> -->
+							</div>
+						</div>
+						<div class="form">{{ evt.form }}</div>
+						<div class="dates">{{ evt.date_start }} - {{ evt.date_end }}</div>
 
+
+						<!-- <div class="desc">{{ evt.course.description }}</div> -->
+						<!-- <div class="text">{{ evt.course.text }}</div> -->
+						<div class="appr-button">
+							<div class="button">Записаться</div>
+							<div class="price">{{ evt.cost }} <i class="fa fa-ruble"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+<script src='/javascripts/carousel.js'></script>
+

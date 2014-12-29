@@ -1,9 +1,13 @@
+.width-wrapper {
+  width: 960px;
+  margin: 0 auto; }
+
 header {
   background-color: #222;
-  color: #ccc;
+  color: #ECF0F1;
   height: 120px;
-  padding: 0 20px;
-  margin-bottom: 10px; }
+  padding: 0;
+  border-bottom: 4px solid #3498DB; }
   header .left {
     float: left; }
   header .right {
@@ -13,7 +17,7 @@ header {
       line-height: 20px;
       display: inline-block;
       vertical-align: middle;
-      padding: 0px 20px; }
+      padding: 0px 10px; }
       header .right > span .action {
         font-family: 'LatoBlack';
         font-size: 20px;
@@ -30,7 +34,7 @@ header {
           color: white; }
       header .right > span .contact {
         font-family: 'LatoMedium';
-        font-size: 18px;
+        font-size: 16px;
         padding: 5px 0; }
   header .logo {
     font-family: 'LatoBlack';
@@ -39,7 +43,7 @@ header {
     line-height: 120px;
     padding-right: 20px; }
     header .logo a {
-      color: #ccc;
+      color: #ECF0F1;
       text-decoration: none; }
   header .tab {
     font-size: 16px;
@@ -48,7 +52,8 @@ header {
     float: left;
     font-family: 'LatoBlack';
     -webkit-transition: all 0.2s;
-            transition: all 0.2s; }
+            transition: all 0.2s;
+    cursor: pointer; }
     header .tab span {
       padding: 10px 1px;
       -webkit-transition: all 0.2s;

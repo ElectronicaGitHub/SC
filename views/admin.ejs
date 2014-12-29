@@ -1,12 +1,228 @@
 <%- layout('base.ejs')%>
+<script src="/libs/angular/angular.js"></script>
 <script src="/libs/tinymce/tinymce.min.js"></script>
 <script src="/libs/angular-ui-tinymce/src/tinymce.js"></script>
-<script src="/javascripts/utils.js"></script>
 <script src="/javascripts/admin.js"></script>
-<script src="/javascripts/directives/news_element.js"></script>
-<link rel="stylesheet" href="/stylesheets/index.css">
+<link rel="stylesheet" href="/stylesheets/admin.css">
 
-<div ng-app="admin" ng-controller="Admin">
+<div class="adminView" ng-app="admin" ng-controller="Admin" ng-init="init()">
+
+<div class="success" ng-if="success=='create'">Успешное сохранение</div>
+<div class="success" ng-if="success=='change'">Успешное изменение</div>
+<div class="success" ng-if="success=='remove'">Успешное удаление</div>
+
+
+<div class="vert-nav-panel">
+	<ul>
+		<li class="title">Создание</li>
+		<li ng-class="{ selected : tab == 'info' }" ng-click="changeTab('info')">Главная</li>
+		<li ng-class="{ selected : tab == 'advertise' }" ng-click="changeTab('advertise')">Реклама</li>
+		<li ng-class="{ selected : tab == 'course' }" ng-click="changeTab('course')">Курс</li>
+		<li ng-class="{ selected : tab == 'lector' }" ng-click="changeTab('lector')">Лекторы</li>
+		<li ng-class="{ selected : tab == 'blog' }" ng-click="changeTab('blog')">Блог</li>
+		<li ng-class="{ selected : tab == 'shedule' }" ng-click="changeTab('shedule')">Расписание</li>
+		<li class="title">Просмотр</li>
+		<li ng-class="{ selected : tab == 'advertise-list' }" ng-click="changeTab('advertise-list')">Реклама</li>
+		<li ng-class="{ selected : tab == 'course-list' }" ng-click="changeTab('course-list')">Курс</li>
+		<li ng-class="{ selected : tab == 'lector-list' }" ng-click="changeTab('lector-list')">Лекторы</li>
+		<li ng-class="{ selected : tab == 'blog-list' }" ng-click="changeTab('blog-list')">Блог</li>
+	</ul>
+</div>
+<div class="view-container">
+
+	<div class="tabpage advertise-list" ng-show="tab=='advertise-list'">
+		<div class="list">
+			<p>Рекламы</p>
+			<div class="each" ng-repeat="ad in advertises">
+
+				<div class="image" style="background-image: url({{ ad.background }})"></div>
+				<div class="text-info">
+					<p><b>{{ ad.title }}</b></p>
+					<p>{{ ad.description }}</p>
+					<span class="buttons">
+						<button class="change" ng-click="changeLoad(ad, 'advertise')">Изменить</button>
+						<button class="remove" ng-click="remove(ad._id, 'advertise')">Удалить</button>
+					</span>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	<div class="tabpage course-list" ng-show="tab=='course-list'">
+		<div class="list">
+			<p>Курсы</p>
+			<div class="each" ng-repeat="co in courses">
+				<div class="image" style="background-image: url({{ co.image }})"></div>
+				<div class="text-info">
+					<p><b>{{ co.title }}</b></p>
+					<p>{{ co.description }}</p>
+					<div>
+						<div class="image" style="background-image: url({{ co.lector.avatar }})"></div>
+						<div class="text-info">
+							<p><b>{{ co.lector.name}}</b></p>	
+						</div>
+					</div>
+					<span class="buttons">
+						<button class="change" ng-click="changeLoad(co, 'course')">Изменить</button>
+						<button class="remove" ng-click="remove(co._id, 'course')">Удалить</button>
+					</span>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	<div class="tabpage lector-list" ng-show="tab=='lector-list'">
+		<div class="list">
+			<p>Лекторы</p>
+			<div class="each" ng-repeat="le in lectors">
+				<div class="image" style="background-image: url({{ le.avatar }})"></div>
+				<div class="text-info">
+					<p><b>{{ le.name }}</b></p>
+					<p>{{ le.description }}</p>
+					<span class="buttons">
+						<button class="change" ng-click="changeLoad(le, 'lector')">Изменить</button>
+						<button class="remove" ng-click="remove(le._id, 'lector')">Удалить</button>
+					</span>
+				</div>	
+			</div>
+		</div>
+	</div>	
+
+	<div class="tabpage blog-list" ng-show="tab=='blog-list'">
+		<div class="list">
+			<p>Лекторы</p>
+			<div class="each" ng-repeat="bl in blogs">
+				<div class="text-info">
+					<p><b>{{ bl.title }}</b></p>
+					<p>{{ bl.description }}</p>
+					<span class="buttons">
+						<button class="change" ng-click="changeLoad(bl, 'blog')">Изменить</button>
+						<button class="remove" ng-click="remove(bl._id, 'blog')">Удалить</button>
+					</span>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	<div class="tabpage" ng-show="tab=='info'">
+	</div>
+
+	<!-- ######### -->
+	<!-- CREATINGS -->
+	<!-- ######### -->
+
+	<div class="tabpage advertise" ng-show="tab=='advertise'">
+		<p class="tabname">Реклама</p>
+		<hr>
+		<p>Картинка</p><input ng-model="advertise.background">
+		<p>Заголовок</p><input ng-model="advertise.title">
+		<p>Описание</p><input ng-model="advertise.description">
+		<p>PayId</p><input ng-model="advertise.payId">
+		<p>Стоимость</p><input ng-model="advertise.cost">
+		<button ng-if="eventType=='create'" ng-click="create('advertise', advertise)">Создать рекламу</button>
+		<button ng-if="eventType=='change'" ng-click="change('advertise', advertise)">Изменить рекламу</button>
+	</div>
+
+	<div class="tabpage course" ng-show="tab=='course'">
+		<p class="tabname">Курс</p>	
+		<hr>
+		<p>Заголовок</p><input ng-model="course.title">
+		<p>Описание</p><input ng-model="course.description">
+		<p>Текст</p><textarea ui-tinymce="tinymce_options" ng-model="course.text"></textarea>
+		<p>Картинка</p><input ng-model="course.image">
+		<p>Видос</p><input ng-model="course.video">
+		<p>Pay Id</p><input ng-model="course.payId">
+		<p>Лектор</p><input ng-model="course.lector">
+		<div class="help-list">
+			<p>Выберите лектора:</p>
+			<div class="each" ng-class="{ selected : course.lector == lector._id }" ng-repeat="lector in lectors" ng-click="help.selectLector(course, lector._id)">
+				<div class="image" style="background-image: url( {{lector.avatar }} )"></div>
+				<div class="text-info">
+					<p><b>{{ lector.name }}</b></p>
+					<p>{{ lector.description }}</p>
+				</div>
+			</div>
+		</div>
+		<button ng-if="eventType=='create'" ng-click="create('course', course)">Создать курс</button>
+		<button ng-if="eventType=='change'" ng-click="change('course', course)">Изменить курс</button>
+	</div>
+
+	<div class="tabpage lector" ng-show="tab=='lector'">
+		<p class="tabname">Лекторы</p>
+		<hr>
+		<p>Имя Фамилия</p><input ng-model="lector.name">
+		<p>Описание</p><input ng-model="lector.description">
+		<p>Аватар</p><input ng-model="lector.avatar">
+		<p>Предметы</p><input ng-model="lector.subjects">
+		<p>Курсы</p><input ng-model="lector.courses">
+		<button ng-if="eventType=='create'" ng-click="create('lector', lector)">Создать лектора</button>
+		<button ng-if="eventType=='change'" ng-click="change('lector', lector)">Изменить лектора</button>
+	</div>
+
+	<div class="tabpage blog" ng-show="tab=='blog'">
+		<p class="tabname">Блог</p>
+		<p>Заголовок</p><input ng-model="blog.title">
+		<p>Описание</p><input ng-model="blog.description">
+		<p>Текст</p><textarea ui-tinymce="tinymce_options" ng-model="blog.text"></textarea>
+		<button ng-if="eventType=='create'" ng-click="create('blog', blog)">Создать запись в блоге</button>
+		<button ng-if="eventType=='change'" ng-click="change('blog', blog)">Изменить запись в блоге</button>
+	</div>
+
+	<div class="tabpage shedule" ng-show="tab=='shedule'">
+		<div class="list">
+			<p>Имеющиеся курсы</p>
+
+			<div class="each" ng-click="help.addToEventForm(co)" ng-repeat="co in courses">
+				<div class="image" style="background-image: url({{ co.image }})"></div>
+				<div class="text-info">
+					<p><b>{{ co.title }}</b></p>
+					<p>{{ co.description }}</p>
+				</div>
+			</div>
+		</div>
+		<div class="list" ng-if="event">
+			<h3>Добавить в расписание курс</h3>
+			<div>
+				<p><b>{{ event.title }}</b></p>
+				<p>{{ event.description }}</p>
+				<hr>
+				<p>Стоимость, руб.</p>
+				<input ng-model="event.cost">
+				<p>Pay Id</p>
+				<input ng-model="event.payId">
+				<p>Дата начала</p>
+				<input type="date" ng-model="event.date_start">
+				<p>Дата окончания</p>
+				<input type="date" ng-model="event.date_end">
+				<p>Время проведения</p>
+				<input ng-model="event.time">
+				<p>Форма</p>
+				<input ng-model="event.form">	
+				<div class="buttons-panel">
+					<button ng-click="addEvent(event)">Добавить в расписание</button>
+					<button ng-click="help.cancelEvent()">Отмена</button>
+				</div>
+			</div>
+		</div>
+		<div class="list">
+			<p>Расписание</p>
+			<div class="each" ng-repeat="event in events">
+				<p class="cost">{{ event.cost }}руб.</p>
+				<p class="payId">PayId {{ event.payId }}</p>
+				<div class="image" style="background-image: url({{ event.course.image }})"></div>
+				<div class="text-info">
+					<p><b>{{ event.course.title }}</b></p>
+				</div>
+				<div class="event-info">
+					<p>{{ event.course.description }}</p>
+					<p>С {{ help.makeDate(event.date_start) }} по {{ help.makeDate(event.date_end) }} в {{ event.time }}</p>
+					<p>{{ event.form }}</p>
+					<button class="remove" ng-click="remove(event._id, 'event')">Удалить</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 </div>
 

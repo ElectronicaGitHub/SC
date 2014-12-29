@@ -1,12 +1,11 @@
-$header_bg : #222;
-$header_color : #ccc;
+@import 'theme';
 
 header {
-	background-color: $header_bg;
-	color : $header_color;
+	background-color: $main-color;
+	color : $light-color;
 	height: 120px;
-	padding: 0 20px;
-	margin-bottom: 10px;
+	padding: 0;
+	border-bottom: 4px solid $color-1;
 	.left {
 		float: left;
 	}
@@ -17,7 +16,7 @@ header {
 			line-height: 20px;
 			display: inline-block;
 			vertical-align: middle;
-			padding: 0px 20px;
+			padding: 0px 10px;
 			.action {
 				font-family: 'LatoBlack';
 				font-size: 20px;
@@ -33,12 +32,12 @@ header {
 					margin-bottom: 10px;
 				}
 				&:hover {
-					color : lighten($header_color, 100);
+					color : lighten($light-color, 100);
 				}
 			}
 			.contact {
 				font-family: 'LatoMedium';
-				font-size: 18px;
+				font-size: 16px;
 				padding: 5px 0;
 			}
 		}
@@ -50,7 +49,7 @@ header {
 		line-height: 120px;
 		padding-right: 20px;
 		a {
-			color : $header_color;
+			color : $light-color;
 			text-decoration: none;
 		}
 	}
@@ -61,13 +60,14 @@ header {
 		float: left;
 		font-family: 'LatoBlack';
 		transition: all 0.2s;
+		cursor: pointer;
 		span {
 			padding: 10px 1px;
 			transition: all 0.2s;
 		}
 		&:hover span {
-			color: lighten($header_color, 100);
-			border-bottom: 5px solid lighten($header_color, 100);
+			color: lighten($light-color, 100);
+			border-bottom: 5px solid lighten($light-color, 100);
 		}
 
 
