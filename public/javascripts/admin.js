@@ -223,6 +223,33 @@ app.controller('Admin', ['$scope', '$http', '$timeout', function($scope, $http, 
 	$scope.help.selectLector = function(course, lector_id) {
 		course.lector = lector_id;
 	}
+	$scope.help.selectCourse = function(lector, course_id) {
+		if (!lector.courses) { lector.courses = []; }
+		var exist = false;
+		var elem = null;
+		for (i in lector.courses) {
+			if (lector.courses[i] == course_id) {
+				exist = true;
+				elem = i;
+			}
+		}
+		if (!exist) {
+			lector.courses.push(course_id);
+		} else {
+			lector.courses.splice(elem, 1);
+		}
+
+		console.log(lector.courses);
+	}
+	$scope.help.isInList = function(list,elem) {
+		var exist = false;
+		for (i in list) {
+			if (list[i]._id == elem ) {
+				exist = true;
+			}
+		}
+		return exist;	
+	}
 
 	$scope.help.addToEventForm = function(course) {
 		console.log(course)

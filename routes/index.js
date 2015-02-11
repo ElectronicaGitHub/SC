@@ -15,8 +15,17 @@ function fn(express) {
 			res.render('index', {
 				advertises : advertises
 			});
-		})
+		});
 	});
+
+	router.get('/lectors', function(req, res, next) {	
+		Lector.find().populate('courses').exec(function(err, results) {
+			if (err) return next(err);
+			res.render('lectors', {
+				lectors : results
+			});
+		});
+	})
 
 	// DATA GETS
 

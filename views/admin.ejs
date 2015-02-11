@@ -153,8 +153,16 @@
 		<p>Имя Фамилия</p><input ng-model="lector.name">
 		<p>Описание</p><input ng-model="lector.description">
 		<p>Аватар</p><input ng-model="lector.avatar">
-		<p>Предметы</p><input ng-model="lector.subjects">
-		<p>Курсы</p><input ng-model="lector.courses">
+		<p>Курсы</p>
+		<p ng-repeat="i in lector.courses"> {{ i }}</p>
+		<div class="help-list">
+			<div class="each" ng-repeat="course in courses" ng-click="help.selectCourse(lector, course._id)">
+				<div class="text-info">
+					<p><b>{{ course.title }}</b></p>
+					<p>{{ course.description }}</p>
+				</div>
+			</div>
+		</div>
 		<button ng-if="eventType=='create'" ng-click="create('lector', lector)">Создать лектора</button>
 		<button ng-if="eventType=='change'" ng-click="change('lector', lector)">Изменить лектора</button>
 	</div>
