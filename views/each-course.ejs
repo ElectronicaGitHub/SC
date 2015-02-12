@@ -1,0 +1,12 @@
+<%- layout('base.ejs') %>
+<% block('title', 'Главная страница') -%>
+<% stylesheet('/stylesheets/each-course.css') -%>
+
+<div class="course width-wrapper">
+	<div class="course-image-wrapper">
+		<div class="course-image" style="background-image: url(<%= course.image %>)"></div>
+		<div class="fader-with-text">
+			<span><%= course.title %></span>
+		</div>
+	</div>
+</div>

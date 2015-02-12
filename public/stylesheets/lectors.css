@@ -1,0 +1,30 @@
+.lectors-container {
+  padding: 20px 50px; }
+  .lectors-container .each-lector {
+    margin-bottom: 30px;
+    overflow: hidden; }
+    .lectors-container .each-lector .img {
+      width: 100px;
+      height: 100px;
+      float: left;
+      margin-right: 50px;
+      background-position: center center;
+      background-size: cover;
+      border-radius: 5px; }
+    .lectors-container .each-lector .info {
+      width: 600px;
+      float: left;
+      height: 100px;
+      line-height: 100px; }
+      .lectors-container .each-lector .info span {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 20px; }
+        .lectors-container .each-lector .info span .label {
+          font-family: "LatoBlack";
+          font-weight: bold;
+          font-size: 18px;
+          margin-bottom: 10px; }
+        .lectors-container .each-lector .info span .description {
+          font-size: 15px;
+          font-family: "LatoMedium"; }

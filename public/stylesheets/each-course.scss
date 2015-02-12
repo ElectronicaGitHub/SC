@@ -1,0 +1,31 @@
+.course {
+	min-height: 700px;
+	.course-image-wrapper {
+		position: relative;
+		.course-image {
+			width: 100%;
+			height: 200px;
+			background-position: center center;
+			background-size: cover;
+		}
+		.fader-with-text {
+			display: inline-block;
+			vertical-align: middle;
+			background-color: rgba(0,0,0,.5);
+			position: absolute;
+			width: 100%;
+			top: 0;
+			height: 200px;
+			line-height: 200px;
+			text-align: center;
+			span {
+				vertical-align: middle;
+				display: inline-block;
+				line-height: 30px;
+				font-size: 25px;
+				color: white;
+				font-family: "LatoBlack";
+			}
+		}
+	}
+}

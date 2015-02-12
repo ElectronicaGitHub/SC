@@ -27,6 +27,15 @@ function fn(express) {
 		});
 	})
 
+	router.get('/courses/:id', function(req, res, next) {
+		Course.findById(req.params.id, function(err, result) {
+			if (err) return next(err);
+			res.render('each-course', {
+				course : result
+			});
+		});
+	})
+
 	// DATA GETS
 
 	router.get('/advertise/get', function(req, res, next) {

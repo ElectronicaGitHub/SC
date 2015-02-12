@@ -34,7 +34,9 @@
 					<div ng-repeat="evt in m.events" class="shedule-event">
 						<!-- <div class="image" style="background-image : url( {{ evt.image }} )"></div> -->
 						<div class="info">
-							<div class="title">{{ evt.course.title }}</div>
+							<div class="title">
+								<a href="/courses/{{ evt.course._id }}">{{ evt.course.title }}</a>
+							</div>
 							<div class="lector">
 								<div class="avatar" style="background-image:url({{ evt.course.lector.avatar }})"></div>
 								<div class="name">{{ evt.course.lector.name }}</div>

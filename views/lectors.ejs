@@ -1,17 +1,20 @@
 <%- layout('base.ejs') %>
 <% block('title', 'Главная страница') -%>
 <% stylesheet('/stylesheets/index.css') -%>
+<% stylesheet('/stylesheets/lectors.css') -%>
 
+<div class="lectors-container width-wrapper">
 
-<% for (var i=0; i<lectors.length; i++) { %>
+	<% for (var i=0; i<lectors.length; i++) { %>
+		<div class="each-lector">
+			<div class="img" style="background-image : url(<%= lectors[i].avatar %>)"></div>
+			<div class="info">
+				<span>	
+					<p class="label"><%= lectors[i].name %></p>
+					<p class="description"><%= lectors[i].description %></p>
+				</span>
+			</div>
+		</div>
+	<% } %>
 
-<p><%= lectors[i] %> </p>
-<div class="each">
-	<div class="img" style="background-image : url(lectors[i].avatar)"></div>
-	<div class="info">
-		<p class="label"><%= lectors[i].name %></p>
-		<p class="description"><%= lectors[i].description %></p>
-	</div>
 </div>
-
-<% } %>
