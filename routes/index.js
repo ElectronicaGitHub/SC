@@ -27,6 +27,15 @@ function fn(express) {
 		});
 	})
 
+	router.get('/news', function(req, res, next) {	
+		Blog.find(function(err, results) {
+			if (err) return next(err);
+			res.render('news', {
+				news : results
+			});
+		});
+	})
+
 	router.get('/courses', function(req, res, next) {	
 		Course.find().populate('lector').exec(function(err, results) {
 			if (err) return next(err);
