@@ -6,7 +6,18 @@
 	<div class="course-image-wrapper">
 		<div class="course-image" style="background-image: url(<%= course.image %>)"></div>
 		<div class="fader-with-text">
-			<span><%= course.title %></span>
+			<span>
+				<p><%= course.title %></p>
+				<div class="course-lector-info">
+					<span class="lector-name"><%= course.lector.name %></span>
+				</div>
+			</span>
+		</div>
+	</div>
+	<div class="course-info">
+		<div class="description"><%= course.description %></div>
+		<div class="video">
+			<iframe width="480" height="290" src="https://www.youtube.com/embed/trdyHO8bwjo" frameborder="0" allowfullscreen></iframe>
 		</div>
 	</div>
 </div>

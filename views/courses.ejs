@@ -1,0 +1,22 @@
+<%- layout('base.ejs') %>
+<% block('title', 'Главная страница') -%>
+<% stylesheet('/stylesheets/index.css') -%>
+<% stylesheet('/stylesheets/courses.css') -%>
+
+<div class="courses-container width-wrapper">
+
+	<p>Наши лекторы</p>
+
+	<% for (var i=0; i<courses.length; i++) { %>
+		<div class="each-lector">
+			<div class="img" style="background-image : url(<%= courses[i].image %>)"></div>
+			<div class="info">
+				<span>	
+					<p class="label"><%= courses[i].title %></p>
+					<p class="description"><%= courses[i].description %></p>
+				</span>
+			</div>
+		</div>
+	<% } %>
+
+</div>

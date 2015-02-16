@@ -1,14 +1,14 @@
-.lectors-container {
+.courses-container {
   padding: 20px 50px; }
-  .lectors-container > p {
+  .courses-container > p {
     text-align: center;
     font-family: "LatoBlack";
     font-size: 25px;
     margin-bottom: 40px; }
-  .lectors-container .each-lector {
+  .courses-container .each-lector {
     margin-bottom: 30px;
     overflow: hidden; }
-    .lectors-container .each-lector .img {
+    .courses-container .each-lector .img {
       width: 100px;
       height: 100px;
       float: left;
@@ -16,20 +16,20 @@
       background-position: center center;
       background-size: cover;
       border-radius: 5px; }
-    .lectors-container .each-lector .info {
+    .courses-container .each-lector .info {
       width: 600px;
       float: left;
       height: 100px;
       line-height: 100px; }
-      .lectors-container .each-lector .info span {
+      .courses-container .each-lector .info span {
         display: inline-block;
         vertical-align: middle;
         line-height: 20px; }
-        .lectors-container .each-lector .info span .label {
+        .courses-container .each-lector .info span .label {
           font-family: "LatoBlack";
           font-weight: bold;
           font-size: 18px;
           margin-bottom: 10px; }
-        .lectors-container .each-lector .info span .description {
+        .courses-container .each-lector .info span .description {
           font-size: 15px;
           font-family: "LatoMedium"; }

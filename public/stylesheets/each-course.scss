@@ -18,7 +18,7 @@
 			height: 200px;
 			line-height: 200px;
 			text-align: center;
-			span {
+			> span {
 				vertical-align: middle;
 				display: inline-block;
 				line-height: 30px;
@@ -26,6 +26,39 @@
 				color: white;
 				font-family: "LatoBlack";
 			}
+		}
+	}
+	.course-lector-info {
+		text-align: center;
+		padding-top: 10px;
+		// > * {
+		// 	float: left;
+		// }
+		.lector-avatar {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			background-position: center;
+			background-size: cover;
+		}
+		.lector-name {
+			font-family: "LatoBlack";
+			font-size: 18px;
+		}
+	}
+	.course-info {
+		width: 100%;
+		margin-top: 20px;
+		.description {
+			float: left;
+			width: 50%;
+			padding: 10px 20px;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		.video {
+			float: left;
+			width: 50%;
 		}
 	}
 }

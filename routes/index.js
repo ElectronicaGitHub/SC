@@ -27,8 +27,17 @@ function fn(express) {
 		});
 	})
 
+	router.get('/courses', function(req, res, next) {	
+		Course.find().populate('lector').exec(function(err, results) {
+			if (err) return next(err);
+			res.render('courses', {
+				courses : results
+			});
+		});
+	})
+
 	router.get('/courses/:id', function(req, res, next) {
-		Course.findById(req.params.id, function(err, result) {
+		Course.findById(req.params.id).populate('lector').exec(function(err, result) {
 			if (err) return next(err);
 			res.render('each-course', {
 				course : result
