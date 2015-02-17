@@ -1,8 +1,15 @@
 <%- layout('base.ejs') %>
 <% block('title', 'Главная страница') -%>
+<% script('/libs/moment.js') -%>
+<% script('/javascripts/each-course.js') -%>
+<% stylesheet('/stylesheets/index.css') -%>
 <% stylesheet('/stylesheets/each-course.css') -%>
 
-<div class="course width-wrapper">
+<script>
+	window.cid = '<%= course._id%>';
+</script>
+
+<div class="gim-page-container course width-wrapper" ng-app="index" ng-controller="Index">
 	<div class="course-image-wrapper">
 		<div class="course-image" style="background-image: url(<%= course.image %>)"></div>
 		<div class="fader-with-text">
@@ -18,6 +25,40 @@
 		<div class="description"><%= course.description %></div>
 		<div class="video">
 			<iframe width="480" height="290" src="https://www.youtube.com/embed/trdyHO8bwjo" frameborder="0" allowfullscreen></iframe>
+		</div>
+	</div>
+	
+	<div class="shedule">
+		<div class="width-wrapper">
+			<h3 class="title">Расписание курсов</h3>
+			<div class="shedule-month" ng-repeat="m in events track by $index">
+				<div ng-if="getMonth(m.n)">
+					<div class="month-label"> {{ getMonth(m.n) }} </div>
+					<div ng-repeat="evt in m.events" class="shedule-event">
+						<!-- <div class="image" style="background-image : url( {{ evt.image }} )"></div> -->
+						<div class="info">
+							<div class="title">
+								<a href="/courses/{{ evt.course._id }}">{{ evt.course.title }}</a>
+							</div>
+							<div class="lector">
+								<div class="avatar" style="background-image:url({{ evt.course.lector.avatar }})"></div>
+								<div class="name">{{ evt.course.lector.name }}</div>
+								<!-- <div>{{ evt.course.lector.name }}</div> -->
+							</div>
+						</div>
+						<div class="form">{{ evt.form }}</div>
+						<div class="dates">{{ evt.date_start }} - {{ evt.date_end }}</div>
+
+
+						<!-- <div class="desc">{{ evt.course.description }}</div> -->
+						<!-- <div class="text">{{ evt.course.text }}</div> -->
+						<div class="appr-button">
+							<div class="button">Записаться</div>
+							<div class="price">{{ evt.cost }} <i class="fa fa-ruble"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

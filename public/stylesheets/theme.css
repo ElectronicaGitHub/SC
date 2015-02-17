@@ -1,4 +1,6 @@
 .width-wrapper {
   width: 960px;
-  min-height: 600px;
   margin: 0 auto; }
+
+.gim-page-container {
+  min-height: 500px; }

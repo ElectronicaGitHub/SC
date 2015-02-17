@@ -46,10 +46,10 @@ function fn(express) {
 	})
 
 	router.get('/courses/:id', function(req, res, next) {
-		Course.findById(req.params.id).populate('lector').exec(function(err, result) {
+		Course.findById(req.params.id).populate('lector').exec(function(err, course) {
 			if (err) return next(err);
 			res.render('each-course', {
-				course : result
+				course : course
 			});
 		});
 	})
@@ -82,6 +82,21 @@ function fn(express) {
 
 	router.get('/event/get', function(req, res, next) {
 		Event.find().sort({
+			date_start : 1
+		}).populate('course').exec(function(err, results) {
+			opts = {
+				path : 'course.lector',
+				model : 'Lector'
+			};
+			Event.populate(results, opts, function(err, ok) {
+				if (err) return next(err);
+				res.json(ok)
+			})
+		})
+	})
+
+	router.get('/event/get/:id', function(req, res, next) {
+		Event.find({course : req.params.id}).sort({
 			date_start : 1
 		}).populate('course').exec(function(err, results) {
 			opts = {
